@@ -1,13 +1,19 @@
 {
-  "type": "module", 
+  "type": "module",
   "scripts": {
     "start": "vercel dev",
-    "deploy": "vercel"
+    "deploy": "vercel",
+    "dev": "nodemon"
   },
   "dependencies": {
+    "@libsql/client": "^0.15.5",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.43.1",
     "hono": "^4.4.2"
   },
   "devDependencies": {
-    "vercel": "^32.4.1"
+    "drizzle-kit": "^0.31.1",
+    "nodemon": "^3.1.10",
+    "vercel": "^41.7.6"
   }
 }
