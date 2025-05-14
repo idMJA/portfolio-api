@@ -8,7 +8,7 @@ import wakatimeRoutes from './wakatime'
 const app = new Hono().basePath('/api')
 
 app.get('/', (c) => {
-  return c.json({ message: "Congrats! You've deployed Hono to Vercel" })
+  return c.json({ message: "Hewwoo :3", createdBy: "iaMJ アーリャ" })
 })
 
 // Mount MAL routes
