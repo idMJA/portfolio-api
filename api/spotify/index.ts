@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { getNowPlaying, getRecentlyPlayed } from '../../lib/spotify'
+import { getNowPlaying, getRecentlyPlayed } from '../../lib/spotify.js'
 
 const spotifyRoutes = new Hono()
 

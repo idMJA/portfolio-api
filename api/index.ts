@@ -1,9 +1,9 @@
 import { Hono } from 'hono'
 import { handle } from 'hono/vercel'
-import malRoutes from './mal'
-import spotifyRoutes from './spotify'
-import steamRoutes from './steam'
-import wakatimeRoutes from './wakatime'
+import malRoutes from './mal/index.js'
+import spotifyRoutes from './spotify/index.js'
+import steamRoutes from './steam/index.js'
+import wakatimeRoutes from './wakatime/index.js'
 
 const app = new Hono().basePath('/api')
 

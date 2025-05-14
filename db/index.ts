@@ -1,7 +1,7 @@
 import 'dotenv/config';
-import { drizzle } from 'drizzle-orm/libsql';
+import { drizzle } from 'drizzle-orm/libsql/web';
 import { config } from 'dotenv';
-import { malTokens } from './schema';
+import { malTokens } from './schema.js';
 import type { MALTokenResponse } from '../types/mal';
 
 config({ path: '.env.development.local' });

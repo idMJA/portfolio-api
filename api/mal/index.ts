@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { getAuthorizationUrl, getAccessToken, getAnimeList } from '../../lib/mal'
+import { getAuthorizationUrl, getAccessToken, getAnimeList } from '../../lib/mal.js'
 import { getCookie, setCookie } from 'hono/cookie'
 
 const malRoutes = new Hono()
