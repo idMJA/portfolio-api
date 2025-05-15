@@ -48,4 +48,4 @@ export interface OwnedGamesResponse {
 		game_count: number;
 		games: OwnedGame[];
 	};
-} 
+}

@@ -62,4 +62,4 @@ export async function getRecentlyPlayed() {
 	}
 
 	return response.json();
-} 
+}
