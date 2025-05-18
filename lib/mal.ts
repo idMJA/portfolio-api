@@ -4,8 +4,8 @@ import { saveMalToken, getMalToken, isMalTokenExpired } from "../db/index.js";
 
 const CLIENT_ID = process.env.MAL_CLIENT_ID;
 const CLIENT_SECRET = process.env.MAL_CLIENT_SECRET;
-const BASE_URL = process.env.VERCEL_URL
-	? `https://${process.env.VERCEL_URL}`
+const BASE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+	? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
 	: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 const REDIRECT_URI = new URL("/api/mal/callback", BASE_URL).toString();
 
