@@ -4,6 +4,7 @@ This is a personal portfolio API built with [Hono](https://hono.dev/) running on
 
 ## Features
 
+- **GitHub Integration** - Fetch repository data and project information
 - **MyAnimeList Integration** - Fetch anime lists and handle OAuth authentication
 - **Spotify Integration** - Get currently playing tracks and recently played history
 - **Steam Integration** - Access Steam profile and game data
@@ -41,6 +42,11 @@ bun install
 # Turso Database
 TURSO_DATABASE_URL=your_turso_db_url
 TURSO_AUTH_TOKEN=your_turso_auth_token
+
+# GitHub (optional - no auth required for public repos)
+# Uses GitHub API v3 with rate limits: 60 requests/hour unauthenticated, 5000/hour authenticated
+# Add token for higher rate limits:
+# GITHUB_TOKEN=your_github_token
 
 # MyAnimeList
 MAL_CLIENT_ID=your_mal_client_id
@@ -91,6 +97,19 @@ bun deploy
 
 ### Base URL
 - `/api` - Base path for all endpoints
+
+### GitHub
+- `GET /api/github/project?username={username}&limit={limit}` - Get repositories by username (default limit: 10)
+  - Returns non-fork, non-archived repos sorted by most recently updated
+  - Includes language colors for visualization
+  - Query Params:
+    - `username` - GitHub username (required if `repos` not provided)
+    - `limit` - Number of repos to fetch (default: 10)
+
+- `GET /api/github/project?repos={url1},{url2}` - Get specific repositories by URL
+  - Accept comma-separated or multiple `repos` query parameters
+  - URLs can be in format: `https://github.com/owner/repo`
+  - Response includes language colors with fallback color `#6b7280`
 
 ### MyAnimeList
 - `GET /api/mal/auth` - Initiate OAuth flow

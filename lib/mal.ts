@@ -1,6 +1,6 @@
-import { generatePKCEChallenge } from "./pkce.js";
+import { getMalToken, isMalTokenExpired, saveMalToken } from "../db/index.js";
 import type { MALAnimeList, MALTokenResponse } from "../types/mal";
-import { saveMalToken, getMalToken, isMalTokenExpired } from "../db/index.js";
+import { generatePKCEChallenge } from "./pkce.js";
 
 const CLIENT_ID = process.env.MAL_CLIENT_ID;
 const CLIENT_SECRET = process.env.MAL_CLIENT_SECRET;

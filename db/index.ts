@@ -1,15 +1,15 @@
 import "dotenv/config";
-import { drizzle } from "drizzle-orm/libsql/web";
 import { config } from "dotenv";
-import { malTokens } from "./schema.js";
+import { drizzle } from "drizzle-orm/libsql/web";
 import type { MALTokenResponse } from "../types/mal";
+import { malTokens } from "./schema.js";
 
 config({ path: ".env.development.local" });
 
 const db = drizzle({
 	connection: {
-		url: process.env.TURSO_DATABASE_URL!,
-		authToken: process.env.TURSO_AUTH_TOKEN!,
+		url: process.env.TURSO_DATABASE_URL ?? "Why am I seeing this?",
+		authToken: process.env.TURSO_AUTH_TOKEN ?? "",
 	},
 });
 

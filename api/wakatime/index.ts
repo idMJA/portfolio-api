@@ -1,9 +1,6 @@
 import { Hono } from "hono";
 
-const wakatimeRoutes = new Hono();
-
-// WakaTime Stats endpoint
-wakatimeRoutes.get("/stats", async (c) => {
+const wakatimeRoutes = new Hono().get("/stats", async (c) => {
 	try {
 		const apiKey = process.env.WAKATIME_API_KEY;
 
@@ -11,7 +8,6 @@ wakatimeRoutes.get("/stats", async (c) => {
 			return c.json({ error: "WakaTime API key not configured" }, 500);
 		}
 
-		// Fetch all-time stats
 		const response = await fetch(
 			"https://wakatime.com/api/v1/users/current/all_time_since_today",
 			{
@@ -27,7 +23,6 @@ wakatimeRoutes.get("/stats", async (c) => {
 
 		const allTimeData = await response.json();
 
-		// Fetch languages and editors data separately since all_time_since_today doesn't include them
 		const statsResponse = await fetch(
 			"https://wakatime.com/api/v1/users/current/stats/all_time",
 			{

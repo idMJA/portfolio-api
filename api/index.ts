@@ -1,9 +1,10 @@
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
-import malRoutes from "./mal/index.js";
-import spotifyRoutes from "./spotify/index.js";
-import steamRoutes from "./steam/index.js";
-import wakatimeRoutes from "./wakatime/index.js";
+import github from "./github/index.js";
+import mal from "./mal/index.js";
+import spotify from "./spotify/index.js";
+import steam from "./steam/index.js";
+import wakatime from "./wakatime/index.js";
 
 const app = new Hono().basePath("/api");
 
@@ -11,17 +12,15 @@ app.get("/", (c) => {
 	return c.json({ message: "Hewwoo :3", createdBy: "iaMJ アーリャ" });
 });
 
-// Mount MAL routes
-app.route("/mal", malRoutes);
+app.route("/mal", mal);
 
-// Mount Spotify routes
-app.route("/spotify", spotifyRoutes);
+app.route("/github", github);
 
-// Mount Steam routes
-app.route("/steam", steamRoutes);
+app.route("/spotify", spotify);
 
-// Mount WakaTime routes
-app.route("/wakatime", wakatimeRoutes);
+app.route("/steam", steam);
+
+app.route("/wakatime", wakatime);
 
 const handler = handle(app);
 
