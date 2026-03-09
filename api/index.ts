@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
 import github from "./github/index.js";
+import lastfm from "./lastfm/index.js";
 import mal from "./mal/index.js";
 import spotify from "./spotify/index.js";
 import steam from "./steam/index.js";
@@ -15,6 +16,8 @@ app.get("/", (c) => {
 app.route("/mal", mal);
 
 app.route("/github", github);
+
+app.route("/lastfm", lastfm);
 
 app.route("/spotify", spotify);
 

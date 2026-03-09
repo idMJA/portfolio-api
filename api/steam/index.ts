@@ -49,7 +49,6 @@ const steamRoutes = new Hono()
 				return c.json({ error: "Steam credentials not found" }, 500);
 			}
 
-			// Fetch player summary
 			const summaryResponse = await fetch(
 				`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${STEAM_API_KEY}&steamids=${STEAM_ID}`,
 				{
@@ -69,7 +68,6 @@ const steamRoutes = new Hono()
 			const summaryData: PlayerSummaryResponse = await summaryResponse.json();
 			const playerSummary = summaryData.response.players[0];
 
-			// If player is in game, fetch recent games to get the game icon
 			if (playerSummary?.gameid) {
 				const recentGamesResponse = await fetch(
 					`https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${STEAM_API_KEY}&steamid=${STEAM_ID}&format=json`,

@@ -1,12 +1,13 @@
 # Portfolio API
 
-This is a personal portfolio API built with [Hono](https://hono.dev/) running on [Vercel](https://vercel.com/). The API integrates with various external services including MyAnimeList, Spotify, Steam, and WakaTime to provide a unified interface for personal data.
+This is a personal portfolio API built with [Hono](https://hono.dev/) running on [Vercel](https://vercel.com/). The API integrates with various external services including MyAnimeList, Spotify, Last.fm, Steam, and WakaTime to provide a unified interface for personal data.
 
 ## Features
 
 - **GitHub Integration** - Fetch repository data and project information
 - **MyAnimeList Integration** - Fetch anime lists and handle OAuth authentication
 - **Spotify Integration** - Get currently playing tracks and recently played history
+- **Last.fm Integration** - Get recently played tracks history
 - **Steam Integration** - Access Steam profile and game data
 - **WakaTime Integration** - Track coding statistics and time spent programming
 
@@ -52,10 +53,13 @@ TURSO_AUTH_TOKEN=your_turso_auth_token
 MAL_CLIENT_ID=your_mal_client_id
 MAL_CLIENT_SECRET=your_mal_client_secret
 
+# Last.fm
+LASTFM_API_KEY=your_lastfm_api_key
+LASTFM_USERNAME=your_lastfm_username
+
 # Spotify
 SPOTIFY_CLIENT_ID=your_spotify_client_id
 SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
-SPOTIFY_REFRESH_TOKEN=your_spotify_refresh_token
 
 # Steam
 STEAM_API_KEY=your_steam_api_key
@@ -116,8 +120,11 @@ bun deploy
 - `GET /api/mal/callback` - OAuth callback handler
 - `GET /api/mal/anime-list` - Get full anime list
 
+### Last.fm
+- `GET /api/lastfm/recently-played` - Get recently played tracks
+
 ### Spotify
-- `GET /api/spotify/now-playing` - Get currently playing track
+- `GET /api/spotify/currently-playing` - Get currently playing track
 - `GET /api/spotify/recently-played` - Get recently played tracks
 
 ### Steam
